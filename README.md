@@ -1,4 +1,4 @@
-# Containerized Flask Application: Docker Fundamentals
+# Containerized Flask Application
 
 ## Overview
 
