@@ -8,11 +8,13 @@ As software systems grow in complexity, the "it works on my machine" problem bec
 
 ```text
 .
-├── app.py               # Main Flask application code
-├── Dockerfile           # Instructions for building the Docker image
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-└── LICENSE              # MIT License file
+├── app.py # Main Flask application code
+├── .gitignore # tells git to ignore uploading sensitive files 
+├── Dockerfile  # Instructions for building the Docker image
+├── README.md  # Project documentation
+├── requirements.txt  # Python dependencies
+└── Screenshots # Proof to show app is running 
+    └── flask_app_running.png
 ```
 
 ## Project Goals
@@ -33,7 +35,7 @@ The project consists of a simple web server (`app.py`) built with Flask, set to 
 
 The instructions for building the image are defined in the `Dockerfile`.
 
-* **`FROM python:3.10-alpine`**: Uses an ultra-lightweight, security-focused Alpine Linux base image to drastically reduce the final image size and attack surface.
+* **`FROM python:3.12-slim`**: An official Docker image tag used to build lightweight, production-ready Python containers.
 * **Layer Caching**: The `COPY requirements.txt .` and `RUN pip install...` commands are placed *before* copying the rest of the application code. This ensures Docker caches the heavy dependency installation layer; if only the Python code changes, the image rebuilds almost instantly.
 
 ### 3. Building the Docker Image
